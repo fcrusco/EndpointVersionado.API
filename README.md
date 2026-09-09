@@ -195,17 +195,5 @@ Para investigar conflitos de versão transitiva:
 dotnet list package --include-transitive
 ```
 
-## Estratégias de leitura de versão (alternativas ao `UrlSegmentApiVersionReader`)
 
-| Estratégia | Exemplo | Característica |
-|---|---|---|
-| `UrlSegmentApiVersionReader` | `/api/v1/...` | Mais visível e "REST-friendly" |
-| `QueryStringApiVersionReader` | `/api/...?api-version=1.0` | Fácil de testar no navegador |
-| `HeaderApiVersionReader` | `X-Api-Version: 1.0` | Mais limpo, porém menos descobrível |
-
-Também é possível combinar estratégias com `ApiVersionReader.Combine(...)`.
-
-## Caminhos alternativos para explorar em aula
-
-- **Minimal APIs**: o mesmo versionamento funciona com `MapGroup` e `.HasApiVersion(...)`, sem precisar de controllers.
 - **Sunset Policy (RFC 8594)**: cabeçalho `Sunset` como padrão de mercado para avisar quando um endpoint efetivamente sairá do ar, complementando o `[Obsolete]`/`Deprecated`.
